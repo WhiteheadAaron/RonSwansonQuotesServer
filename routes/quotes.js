@@ -2,7 +2,9 @@ const express = require("express");
 const Quote = require("../models/quote");
 const router = express.Router();
 
+
 router.get("/", (req, res) => {
+  
   Quote.find()
     .then(results => {
       console.log(results);
@@ -40,6 +42,8 @@ router.post("/", (req, res, next) => {
 });
 
 router.put("/:id", (req, res, next) => {
+
+  console.log(req);
 
   const id = req.params.id;
 
