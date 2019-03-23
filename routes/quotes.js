@@ -19,6 +19,8 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res, next) => {
 
+  console.log(req.body);
+
   const newObj = {
     quote: req.body.quote,
     rating: [],
