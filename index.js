@@ -21,7 +21,7 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
-app.use(bodyParser());
+
 
 app.use("/quotes", quotesRouter);
 
