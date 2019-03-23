@@ -23,6 +23,8 @@ app.use(
 );
 app.use(bodyParser());
 
+app.use("/quotes", quotesRouter);
+
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
@@ -39,7 +41,6 @@ if (require.main === module) {
   runServer();
 }
 
-app.use("/quotes", quotesRouter);
 
 
 
