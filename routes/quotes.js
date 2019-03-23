@@ -4,12 +4,9 @@ const router = express.Router();
 
 
 router.get("/", (req, res) => {
-
-  console.log('hellooooooo');
   
   Quote.find()
     .then(results => {
-      console.log(results);
       res.json(results);
     })
     .catch(err => {
@@ -19,7 +16,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res, next) => {
 
-  console.log(req.body);
+  
 
   const newObj = {
     quote: req.body.quote,
@@ -47,8 +44,6 @@ router.post("/", (req, res, next) => {
 
 router.put("/:id", (req, res, next) => {
 
-  console.log(req);
-
   const id = req.params.id;
 
   const newObj = {
@@ -56,7 +51,7 @@ router.put("/:id", (req, res, next) => {
     ip: req.body.ip
   }
 
-  console.log(newObj, req.body);
+
 
   return Quote.findOneAndUpdate({ _id: id }, newObj, { new: true })
     .select("rating ip")
