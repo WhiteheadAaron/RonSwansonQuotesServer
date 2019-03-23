@@ -7,6 +7,9 @@ router.get("/", (req, res) => {
   
   Quote.find()
     .then(results => {
+      if (!results) {
+        res.json('hello');
+      }
       console.log(results);
       res.json(results);
     })
