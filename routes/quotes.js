@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
       res.json(results);
     })
     .catch(err => {
-      next(err);
+      console.error(err);
     });
 });
 
