@@ -3,11 +3,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const { DATABASE_URL } = require('./config');
+const { DATABASE_URL, DATABASE_NAME } = require('./config');
 
-function dbConnect(url = DATABASE_URL) {
-  console.log(url, 'lalala');
-  return mongoose.connect(url)
+function dbConnect(dbName = DATABASE_NAME, url = DATABASE_URL) {
+  return mongoose.connect(url, {dbName})
     .catch(err => {
       console.error('Mongoose failed to connect');
       console.error(err);
