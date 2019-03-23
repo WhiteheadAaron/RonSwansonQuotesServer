@@ -3,9 +3,8 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const { DATABASE_URL } = require('./config');
 
-function dbConnect(url = DATABASE_URL) {
+function dbConnect(url = `mongodb+srv://aaron:hello@cluster0-a2ktp.mongodb.net/test?retryWrites=true`) {
   return mongoose.connect(url)
     .catch(err => {
       console.error('Mongoose failed to connect');
